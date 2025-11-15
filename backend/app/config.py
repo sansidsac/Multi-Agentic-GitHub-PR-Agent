@@ -2,6 +2,7 @@
 from pydantic_settings import BaseSettings
 from typing import Optional
 import secrets
+import os
 
 
 class Settings(BaseSettings):
@@ -15,8 +16,8 @@ class Settings(BaseSettings):
     LYZR_API_URL: str = "https://agent-prod.studio.lyzr.ai/v3/inference/chat/"
     
     HOST: str = "0.0.0.0"
-    PORT: int = 8000
-    DEBUG: bool = True
+    PORT: int = int(os.getenv("PORT", 8000))
+    DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
     LOG_LEVEL: str = "INFO"
     
     DEFAULT_USER_ID: str
