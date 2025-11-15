@@ -1,0 +1,11 @@
+{
+  "name": "github-pr-agent",
+  "version": "2.0.0",
+  "description": "Multi-Agent GitHub PR Review System",
+  "scripts": {
+    "start": "cd backend && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
